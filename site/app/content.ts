@@ -98,6 +98,38 @@ export const PROJECTS: Project[] = [
       label: 'Open the SOLID Marketplace demo',
     },
   },
+  {
+    id: 'indobiz',
+    name: 'IndoBiz Japan',
+    category: 'PRODUCTION PLATFORM · CAPITAL LAUNCHERS',
+    summary:
+      'An India business-intelligence platform for Japanese companies — news, regulation, market signals, and investment activity, each summary published with its evidence attached.',
+    buildLabel: 'Built',
+    build:
+      'Next.js 16 and Supabase over a Python scraping layer, feeding a Claude synthesis pipeline that deduplicates, classifies, and quality-gates every story before it publishes, keeping provenance snippets attached to each summary. Memberships run on Stripe, and LINE Login is wired in as a custom OIDC provider.',
+    tags: ['Next.js 16', 'Supabase', 'Claude SDK', 'Stripe'],
+    links: [
+      { label: 'Live site', href: 'https://indobiz-japan.launchers-g.com/', external: true },
+      { label: 'Source code', href: 'https://github.com/Marstronix218/indobiz_japan', external: true },
+    ],
+    primary: { href: 'https://indobiz-japan.launchers-g.com/', label: 'Open the IndoBiz Japan platform' },
+  },
+  {
+    id: 'idobata',
+    name: 'idobataAI',
+    category: 'PERSONAL PROJECT · DEPLOYED',
+    summary:
+      'A privacy-first productivity network. Tasks stay private by default, you choose what to post when you finish one, and encouragement comes back from real people and clearly labelled AI personas.',
+    buildLabel: 'Built',
+    build:
+      'Next.js 16 and React 19 on Supabase, with privacy enforced by PostgreSQL row-level security rather than trusted to application code. Cursor-paginated feeds, one-to-one chat, scheduled persona engagement, account deletion that purges media, and an interface built to WCAG 2.1 AA.',
+    tags: ['Next.js 16', 'React 19', 'Supabase', 'PostgreSQL RLS'],
+    links: [
+      { label: 'Live site', href: 'https://idobata-ai.com', external: true },
+      { label: 'Source code', href: 'https://github.com/Marstronix218/idobataAI', external: true },
+    ],
+    primary: { href: 'https://idobata-ai.com', label: 'Open idobataAI' },
+  },
 ];
 
 export const CASE_STUDY = {
@@ -163,8 +195,8 @@ export const EXPERIENCE: Job[] = [
     role: 'Tech Lead / CTO',
     dates: 'MAY 2025 — PRESENT',
     place: 'Nagoya, Japan',
-    text: 'Built an India business-news platform for Japanese executives: 45+ RSS feeds ingested, clustered, and turned into generated articles with AI imagery, reducing manual curation to effectively zero. Automated social distribution with n8n and platform APIs, cutting posting work from roughly 2 hours to 15 minutes, and analyzed 300+ companies with Python, the OpenAI API, and Tavily to identify 130 potential GP/CVC partners.',
-    tags: 'Next.js · OpenAI · Supabase · Python · Tavily · n8n',
+    text: 'Built an India business-news platform for Japanese executives: 45+ RSS feeds ingested, deduplicated, and synthesised into quality-gated articles with generated imagery, reducing manual curation to effectively zero. Automated social distribution with n8n and platform APIs, cutting posting work from roughly 2 hours to 15 minutes, and analyzed 300+ companies with Python, the OpenAI API, and Tavily to identify 130 potential GP/CVC partners.',
+    tags: 'Next.js · Supabase · Claude · OpenAI · Python · Tavily · n8n',
     link: { label: 'Visit the platform', href: 'https://indobiz-japan.launchers-g.com/', external: true },
   },
   {

@@ -88,6 +88,42 @@ function SolidArt() {
   );
 }
 
+function IndoBizArt() {
+  return (
+    <div className="project-art indo-art" aria-hidden="true">
+      <div className="art-topline"><span>INDOBIZ JAPAN</span><span>↗</span></div>
+      <div className="indo-composition">
+        <div className="indo-headline">India.<br />Decoded<br /><em>for Japan.</em></div>
+        <div className="indo-stack">
+          <div className="indo-card">
+            <span className="indo-tag">REGULATION</span>
+            <b>Summary with the<br />evidence attached.</b>
+            <span className="indo-src">SOURCES VERIFIED</span>
+          </div>
+          <div className="indo-ticker"><span>USD/INR</span><i /><span>NIFTY</span><i /><span>CRUDE</span></div>
+        </div>
+      </div>
+      <span className="art-caption">CONCEPT VIEW / INDIA BUSINESS INTELLIGENCE</span>
+    </div>
+  );
+}
+
+function IdobataArt() {
+  return (
+    <div className="project-art idobata-art" aria-hidden="true">
+      <div className="art-topline"><span>IDOBATA AI</span><span>↗</span></div>
+      <div className="idobata-composition">
+        <div className="idobata-headline">Private<br />by default.<br /><em>Shared by choice.</em></div>
+        <div className="idobata-stack">
+          <div className="idobata-task"><span className="idobata-check">✓</span><div><b>Finish the draft</b><span>PRIVATE</span></div></div>
+          <div className="idobata-reply"><span className="idobata-avatar">◕</span><div><b>Nice work.</b><span className="idobata-ai-tag">AI PERSONA</span></div></div>
+        </div>
+      </div>
+      <span className="art-caption">CONCEPT VIEW / PRIVACY-FIRST PRODUCTIVITY NETWORK</span>
+    </div>
+  );
+}
+
 function ProjectInfo({ project, featured = false }: { project: Project; featured?: boolean }) {
   return (
     <div className="project-info">
@@ -132,6 +168,8 @@ const PROJECT_ART: Record<string, () => React.JSX.Element> = {
   knov: KnovArt,
   hookloop: HookLoopArt,
   solid: SolidArt,
+  indobiz: IndoBizArt,
+  idobata: IdobataArt,
 };
 
 export default function Home() {
@@ -166,7 +204,7 @@ export default function Home() {
 
         <section id="work" className="work-section wrap section" aria-labelledby="work-title">
           <div className="section-label"><span>01 / SELECTED WORK</span><span>IDEAS, SHIPPED.</span></div>
-          <div className="section-heading"><h2 id="work-title">Built with intent.</h2><p>Research tooling, a local-first desktop assistant, and agents that carry a task from start to finish. Each one solved a problem I actually had.</p></div>
+          <div className="section-heading"><h2 id="work-title">Built with intent.</h2><p>Research tooling, a local-first desktop assistant, deployed platforms, and agents that carry a task from start to finish. Each one solved a problem I actually had.</p></div>
           <div className="project-grid">
             {FEATURED_PROJECTS.map((project) => {
               const Art = PROJECT_ART[project.id];
@@ -303,7 +341,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="about-section wrap section" aria-labelledby="about-title"><div className="section-label"><span>05 / A LITTLE ABOUT ME</span><span>ALWAYS A WORK IN PROGRESS</span></div><div className="about-grid"><div><h2 id="about-title">A global perspective.<br />A builder’s mindset.</h2><div className="profile-intro"><Image className="profile-photo" src="/noriaki-profile.png" alt="Noriaki Kishida in front of the Golden Gate Bridge" width={320} height={320} sizes="(max-width: 640px) 112px, 156px" priority /><p className="about-lead">I’m studying Computer Science and Artificial Intelligence at Minerva University, with a minor in Economics.</p></div><p>I’m most interested in AI systems that get past the isolated prompt — tools that hold context, work across a whole workflow, and help people make better decisions. That interest has taken me from confidential inference on AWS Nitro Enclaves to autonomous agents, browser-native research tooling, and local-first desktop software.</p><p>Minerva moved me through teams in Japan, South Korea, and Taiwan, and I’m now based in San Francisco. Wherever a project starts, I care about taking it all the way to something people can actually use.</p><div className="education"><span className="education-mark" aria-hidden="true">M</span><div><strong>Minerva University</strong><span>B.Sc. Computer Science &amp; AI · Expected May 2027</span></div></div></div><div className="toolkit"><span className="toolkit-title">TOOLS I REACH FOR</span><div><h3>Languages</h3><p>Python <span>/</span> TypeScript <span>/</span> JavaScript<br />Rust <span>/</span> SQL</p></div><div><h3>Products &amp; interfaces</h3><p>React <span>/</span> Next.js <span>/</span> Tauri<br />Flask <span>/</span> FastAPI <span>/</span> Node.js</p></div><div><h3>AI &amp; infrastructure</h3><p>OpenAI <span>/</span> PyTorch <span>/</span> AWS<br />Supabase <span>/</span> Convex <span>/</span> Docker <span>/</span> n8n</p></div><div className="toolkit-note"><span aria-hidden="true">↳</span> The right tool for the problem.<br />Always learning the next one.</div></div></div></section>
+        <section id="about" className="about-section wrap section" aria-labelledby="about-title"><div className="section-label"><span>05 / A LITTLE ABOUT ME</span><span>ALWAYS A WORK IN PROGRESS</span></div><div className="about-grid"><div><h2 id="about-title">A global perspective.<br />A builder’s mindset.</h2><div className="profile-intro"><Image className="profile-photo" src="/noriaki-profile.png" alt="Noriaki Kishida in front of the Golden Gate Bridge" width={320} height={320} sizes="(max-width: 640px) 112px, 156px" priority /><p className="about-lead">I’m studying Computer Science and Artificial Intelligence at Minerva University, with a minor in Economics.</p></div><p>I’m most interested in AI systems that get past the isolated prompt — tools that hold context, work across a whole workflow, and help people make better decisions. That interest has taken me from confidential inference on AWS Nitro Enclaves to autonomous agents, browser-native research tooling, and local-first desktop software.</p><p>Minerva moved me through teams in Japan, South Korea, and Taiwan, and I’m now based in San Francisco. Wherever a project starts, I care about taking it all the way to something people can actually use.</p><div className="education"><span className="education-mark" aria-hidden="true">M</span><div><strong>Minerva University</strong><span>B.Sc. Computer Science &amp; AI · Expected May 2027</span></div></div></div><div className="toolkit"><span className="toolkit-title">TOOLS I REACH FOR</span><div><h3>Languages</h3><p>Python <span>/</span> TypeScript <span>/</span> JavaScript<br />Rust <span>/</span> SQL</p></div><div><h3>Products &amp; interfaces</h3><p>React <span>/</span> Next.js <span>/</span> Tauri<br />Flask <span>/</span> FastAPI <span>/</span> Node.js</p></div><div><h3>AI &amp; infrastructure</h3><p>OpenAI <span>/</span> Claude <span>/</span> PyTorch <span>/</span> AWS<br />Supabase <span>/</span> Convex <span>/</span> Docker <span>/</span> n8n</p></div><div className="toolkit-note"><span aria-hidden="true">↳</span> The right tool for the problem.<br />Always learning the next one.</div></div></div></section>
 
         <section id="contact" className="contact-section wrap" aria-labelledby="contact-title"><div className="section-label"><span>06 / WHAT’S NEXT?</span><span><span className="status-dot" /> START WITH A CONVERSATION</span></div><div className="contact-heading"><h2 id="contact-title">Let’s build<br /><em>something good.</em></h2><a className="contact-arrow" href={`mailto:${PROFILE.email}`} aria-label="Email Noriaki Kishida"><Arrow /></a></div><div className="contact-bottom"><EmailContact /><div className="social-links"><a href={PROFILE.github} {...ext}><GitHubMark /> GitHub <Arrow /></a><a href={PROFILE.linkedin} {...ext}><LinkedInMark /> LinkedIn <Arrow /></a><a href={PROFILE.resume} {...ext}>Resume <Arrow /></a></div></div></section>
       </main>
