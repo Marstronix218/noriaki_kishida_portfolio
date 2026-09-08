@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://noriaki-kishida.cello-san.chatgpt.site'),
+  metadataBase: new URL('https://noriaki-kishida-portfolio.vercel.app'),
   alternates: { canonical: '/' },
   title: 'Noriaki Kishida — Software Engineer & AI Builder',
   description: 'I turn AI into products that work in the real world. Selected projects and experience from Noriaki Kishida, a software engineer based in San Francisco.',

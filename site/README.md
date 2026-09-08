@@ -43,4 +43,4 @@ Semantic sections, skip navigation, native expandable experience details, visibl
 
 ## Hosting
 
-The initial Sites deployment is private to the owner. Public sharing or a custom domain can be configured separately. When changing hosts, update `metadataBase` to the new trusted origin and deploy the build using that platform's documented process. This scaffold emits a Cloudflare-compatible Worker, so it is not a plain GitHub Pages static export.
+The public site is deployed on Vercel from the `site/` root directory. Vercel uses `npm run vercel-build`, which runs the standard Next.js production build. The private Sites preview uses the Cloudflare-compatible `npm run build` output. When changing the public domain, update `metadataBase` to the new trusted origin.

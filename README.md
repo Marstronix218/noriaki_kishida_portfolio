@@ -10,4 +10,4 @@ npm ci
 npm run dev
 ```
 
-Private portfolio preview: https://noriaki-kishida.cello-san.chatgpt.site
+Public portfolio: https://noriaki-kishida-portfolio.vercel.app
