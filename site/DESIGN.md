@@ -2,9 +2,9 @@
 
 ## Source of truth
 - Status: Active
-- Last refreshed: 2026-09-07
+- Last refreshed: 2026-09-07 (recruiter-facing depth pass)
 - Primary product surfaces: single-page personal portfolio in `site/`.
-- Evidence reviewed: original resume PDF; public GitHub profile and READMEs for knov, HookLoop, SOLID, IndoBiz Japan; indexed LinkedIn. No pre-existing UI or brand assets.
+- Evidence reviewed: original resume PDF; public GitHub READMEs for Research Copilot, knov, HookLoop, SOLID, BearEd, IndoBiz Japan; indexed LinkedIn. No pre-existing UI or brand assets.
 
 ## Brand
 - Personality: confident, curious, precise, international, hands-on.
@@ -22,9 +22,9 @@
 - Key contexts: desktop recruitment and mobile link sharing.
 
 ## Information architecture
-- Primary navigation: Work, Experience, About, Let's talk.
+- Primary navigation: Work, Experience, Recognition, About, Let's talk.
 - Core routes/screens: `/`; original downloadable resume.
-- Content hierarchy: introduction, selected work, outcomes/experience, about/toolkit, contact.
+- Content hierarchy: introduction, selected work, featured case study, outcomes/experience, recognition, about/toolkit, contact.
 
 ## Design principles
 - Evidence before adjectives: show the build and the result.
@@ -32,18 +32,18 @@
 - Tradeoffs: concise project stories over exhaustive resume repetition.
 
 ## Visual language
-- Color: ink #151715, paper #f2f2e9, acid lime #d3f78c, muted green-gray.
-- Typography: Geist sans and mono; compact uppercase labels and tightly tracked display.
+- Color: ink #151715, panel #1d201c (case-study band), paper #f2f2e9, acid lime #d3f78c, muted green-gray. Project artwork tints: green #dce4d5, sand #e0d9c4, violet #c7b8d9, blue #cbdce1.
+- Typography: Geist sans and mono; compact uppercase labels and tightly tracked display; `N/K` typographic monogram with a lime slash.
 - Spacing/layout rhythm: 8px base, 1320px max width, generous section separation.
 - Shape/radius/elevation: fine borders, restrained rounded project artwork, flat surfaces.
 - Motion: subtle orbital motion and hover; respect reduced motion.
-- Imagery/iconography: CSS orbital sculpture and explicitly illustrative project workflows; text arrows; no invented screenshots.
+- Imagery/iconography: CSS orbital sculpture, explicitly illustrative project workflows, and Noriaki's supplied portrait; text arrows plus inline GitHub/LinkedIn brand marks; no invented screenshots or stock portraits.
 
 ## Components
 - Existing components to reuse: scaffold layout and fonts.
-- New/changed components: navigation, hero, projects, experience details, email-copy contact.
+- New/changed components: navigation, hero with CTA cluster, project cards with technical-ownership line, Research Copilot artwork, expandable case study, recognition list, experience details, email-copy contact.
 - Variants and states: hover/focus, expanded details, copy success/failure.
-- Token/component ownership: site-owning agent; `site/app/globals.css`, `site/app/page.tsx`.
+- Token/component ownership: site-owning agent; `site/app/globals.css`, `site/app/page.tsx`. Copy and project/experience/award data live in `site/app/content.ts`.
 
 ## Accessibility
 - Target standard: WCAG 2.2 AA design intent.
@@ -68,7 +68,7 @@
 ## Content voice
 - Tone: direct, personal, grounded.
 - Terminology: AI agents, full-stack engineering, local-first systems.
-- Microcopy rules: exact award specificity; knov technical alpha; SOLID demo with simulated negotiations.
+- Microcopy rules: exact award specificity; knov technical alpha; SOLID demo with simulated negotiations. Ownership labelled "Built" for solo projects and "Under the hood" for team hackathon builds, so shared work is never claimed as individual.
 
 ## Implementation constraints
 - Framework/styling system: scaffolded Sites/Vinext, React, TypeScript, plain CSS.
