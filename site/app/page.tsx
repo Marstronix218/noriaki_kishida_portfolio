@@ -70,7 +70,7 @@ function ResearchCopilotArt() {
 function KnovArt() {
   return (
     <div className="project-art knov-art" aria-hidden="true">
-      <div className="knov-art-copy"><span className="art-kicker">PERSONAL CONTEXT, CONNECTED</span><span className="knov-logo">knov<span>●</span></span><span className="knov-tagline">A little context.<br />A lot of possibility.</span><span className="art-caption">CONCEPT VIEW / MACOS</span></div>
+      <div className="knov-art-copy"><span className="art-kicker">PERSONAL CONTEXT, CONNECTED</span><span className="knov-logo">knov</span><span className="knov-tagline">A little context.<br />A lot of possibility.</span><span className="art-caption">CONCEPT VIEW / MACOS</span></div>
       <div className="knov-window"><div className="window-top"><span className="window-dots"><i /><i /><i /></span><span>your working memory</span><span>⌘ K</span></div><div className="window-content"><div className="memory-label"><span className="memory-dot" /> LOCAL MEMORY</div><strong>Pick up where<br />your mind left off.</strong><div className="context-line"><span>Code</span><i /><span>Browser</span><i /><span>Notes</span></div><div className="memory-thread"><span className="thread-icon">⌁</span><div><b>Connect the dots</b><p>Activity → work threads → next steps</p></div><span>↗</span></div><div className="window-foot"><span>YOUR CONTEXT. YOUR CONTROL.</span><span>◉</span></div></div></div>
     </div>
   );
@@ -84,7 +84,7 @@ function HookLoopArt() {
 
 function SolidArt() {
   return (
-    <div className="project-art solid-art" aria-hidden="true"><div className="art-topline"><span>BUY WITH CONFIDENCE</span><span>↗</span></div><div className="solid-composition"><span className="solid-logo">SOLID<span>.</span></span><div className="solid-card"><span className="solid-check">✓</span><div><b>Two confirmations.<br />One confident handoff.</b><span>BUYER + SELLER → PAYMENT RELEASE</span></div></div></div><span className="art-caption">CONCEPT VIEW / MARKETPLACE BUYING AGENT</span></div>
+    <div className="project-art solid-art" aria-hidden="true"><div className="art-topline"><span>BUY WITH CONFIDENCE</span><span>↗</span></div><div className="solid-composition"><span className="solid-logo">SOLID</span><div className="solid-card"><span className="solid-check">✓</span><div><b>Two confirmations.<br />One confident handoff.</b><span>BUYER + SELLER → PAYMENT RELEASE</span></div></div></div><span className="art-caption">CONCEPT VIEW / MARKETPLACE BUYING AGENT</span></div>
   );
 }
 
@@ -127,8 +127,8 @@ function IdobataArt() {
 function ProjectInfo({ project, featured = false }: { project: Project; featured?: boolean }) {
   return (
     <div className="project-info">
-      {project.caseStudy && <a className="case-badge" href="#case-study"><span aria-hidden="true">✳</span> Featured case study <span aria-hidden="true">↓</span></a>}
-      {project.award && <span className="award"><span aria-hidden="true">✳</span> {project.award}</span>}
+      {project.caseStudy && <a className="case-badge" href="#case-study"><span aria-hidden="true">✦</span> Featured case study <span aria-hidden="true">↓</span></a>}
+      {project.award && <span className="award"><span aria-hidden="true">✦</span> {project.award}</span>}
       <div className="project-heading">
         <div>
           <span className="project-category">{project.category}</span>
@@ -232,7 +232,7 @@ export default function Home() {
         <section id="case-study" className="case-section" aria-labelledby="case-title">
           <div className="wrap section">
             <div className="section-label"><span>02 / FEATURED CASE STUDY</span><span>LOCAL-FIRST · MACOS</span></div>
-            <div className="section-heading"><div className="case-title-block"><span className="case-project">knov<span aria-hidden="true">●</span></span><h2 id="case-title">Local by architecture,<br />not by promise.</h2></div><p>A closer look at <strong>knov</strong>, the local-first macOS assistant from the work above — how it rebuilds your working context on your own machine, and why so little of it ever leaves. Technical alpha, Apple Silicon.</p></div>
+            <div className="section-heading"><div className="case-title-block"><span className="case-project">knov</span><h2 id="case-title">Local by architecture,<br />not by promise.</h2></div><p>A closer look at <strong>knov</strong>, the local-first macOS assistant from the work above — how it rebuilds your working context on your own machine, and why so little of it ever leaves. Technical alpha, Apple Silicon.</p></div>
 
             <div className="contrast">
               {CASE_STUDY.contrast.map((row) => (
