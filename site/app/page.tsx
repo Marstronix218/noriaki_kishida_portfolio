@@ -127,6 +127,7 @@ function IdobataArt() {
 function ProjectInfo({ project, featured = false }: { project: Project; featured?: boolean }) {
   return (
     <div className="project-info">
+      {project.caseStudy && <a className="case-badge" href="#case-study"><span aria-hidden="true">✳</span> Featured case study <span aria-hidden="true">↓</span></a>}
       {project.award && <span className="award"><span aria-hidden="true">✳</span> {project.award}</span>}
       <div className="project-heading">
         <div>
@@ -178,7 +179,7 @@ export default function Home() {
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="site-header wrap">
         <a className="wordmark" href="#" aria-label="Noriaki Kishida, home">N<span>/</span>K</a>
-        <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#recognition">Recognition</a><a href="#about">About</a></nav>
+        <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#recognition">Recognition</a></nav>
         <a className="header-contact" href={`mailto:${PROFILE.email}`}>Let’s talk <Arrow /></a>
       </header>
       <main id="main">
@@ -230,8 +231,8 @@ export default function Home() {
 
         <section id="case-study" className="case-section" aria-labelledby="case-title">
           <div className="wrap section">
-            <div className="section-label"><span>02 / FEATURED CASE STUDY</span><span>RESEARCH COPILOT</span></div>
-            <div className="section-heading"><h2 id="case-title">Research that knows<br />where it’s going.</h2><p>Most AI tools wait to be asked. I wanted one that understands the research already in progress.</p></div>
+            <div className="section-label"><span>02 / FEATURED CASE STUDY</span><span>LOCAL-FIRST · MACOS</span></div>
+            <div className="section-heading"><div className="case-title-block"><span className="case-project">knov<span aria-hidden="true">●</span></span><h2 id="case-title">Local by architecture,<br />not by promise.</h2></div><p>A closer look at <strong>knov</strong>, the local-first macOS assistant from the work above — how it rebuilds your working context on your own machine, and why so little of it ever leaves. Technical alpha, Apple Silicon.</p></div>
 
             <div className="contrast">
               {CASE_STUDY.contrast.map((row) => (
@@ -287,13 +288,15 @@ export default function Home() {
             </details>
 
             <div className="case-links">
-              <a className="text-link" href="https://github.com/Marstronix218/Research-Copilot" {...ext}>Read the source on GitHub <Arrow /></a>
+              <a className="text-link" href="https://github.com/Marstronix218/knov" {...ext}>Read the source on GitHub <Arrow /></a>
             </div>
           </div>
         </section>
+        <section id="about" className="about-section wrap section" aria-labelledby="about-title"><div className="section-label"><span>03 / A LITTLE ABOUT ME</span><span>ALWAYS A WORK IN PROGRESS</span></div><div className="about-grid"><div><h2 id="about-title">A global perspective.<br />A builder’s mindset.</h2><div className="profile-intro"><Image className="profile-photo" src="/noriaki-profile.png" alt="Noriaki Kishida in front of the Golden Gate Bridge" width={320} height={320} sizes="(max-width: 640px) 112px, 156px" priority /><p className="about-lead">I’m studying Computer Science and Artificial Intelligence at Minerva University, with a minor in Economics.</p></div><p>I’m most interested in AI systems that get past the isolated prompt — tools that hold context, work across a whole workflow, and help people make better decisions. That interest has taken me from confidential inference on AWS Nitro Enclaves to autonomous agents, browser-native research tooling, and local-first desktop software.</p><p>Minerva moved me through teams in Japan, South Korea, and Taiwan, and I’m now based in San Francisco. Wherever a project starts, I care about taking it all the way to something people can actually use.</p><div className="education"><span className="education-mark" aria-hidden="true">M</span><div><strong>Minerva University</strong><span>B.Sc. Computer Science &amp; AI · Expected May 2027</span></div></div></div><div className="toolkit"><span className="toolkit-title">TOOLS I REACH FOR</span><div><h3>Languages</h3><p>Python <span>/</span> TypeScript <span>/</span> JavaScript<br />Rust <span>/</span> SQL</p></div><div><h3>Products &amp; interfaces</h3><p>React <span>/</span> Next.js <span>/</span> Tauri<br />Flask <span>/</span> FastAPI <span>/</span> Node.js</p></div><div><h3>AI &amp; infrastructure</h3><p>OpenAI <span>/</span> Claude <span>/</span> PyTorch <span>/</span> AWS<br />Supabase <span>/</span> Convex <span>/</span> Docker <span>/</span> n8n</p></div><div className="toolkit-note"><span aria-hidden="true">↳</span> The right tool for the problem.<br />Always learning the next one.</div></div></div></section>
+
 
         <section id="experience" className="experience-section" aria-labelledby="experience-title"><div className="wrap section">
-          <div className="section-label"><span>03 / EXPERIENCE</span><span>BEYOND THE SIDE PROJECTS</span></div>
+          <div className="section-label"><span>04 / EXPERIENCE</span><span>BEYOND THE SIDE PROJECTS</span></div>
           <div className="impact-stats"><div><strong>60<span>→</span>5<small>min</small></strong><span>Secure AI setup time<br />EAGLYS</span></div><div><strong>45<span>+</span></strong><span>RSS feeds automated<br />Capital Launchers</span></div><div><strong>50<span>+</span></strong><span>AI agent workflows managed<br />GSP Cloud</span></div></div>
           <div className="experience-grid">
             <div className="experience-intro"><h2 id="experience-title">Real teams.<br />Real impact.</h2><p>Four internships and a tech lead role across Japan, South Korea, and Taiwan — building where engineering meets a real constraint: security, cost, or time.</p><a className="text-link" href={PROFILE.resume} download>Download my resume <span aria-hidden="true">↓</span></a></div>
@@ -318,7 +321,7 @@ export default function Home() {
         </div></section>
 
         <section id="recognition" className="recognition-section wrap section" aria-labelledby="recognition-title">
-          <div className="section-label"><span>04 / SELECTED RECOGNITION</span><span>BUILT UNDER PRESSURE</span></div>
+          <div className="section-label"><span>05 / SELECTED RECOGNITION</span><span>BUILT UNDER PRESSURE</span></div>
           <div className="section-heading"><h2 id="recognition-title">Shipped on the clock.</h2><p>Four podium finishes at hackathons between 2024 and 2026, each one a working product by the deadline.</p></div>
           <ul className="award-list">
             {RECOGNITION.map((award) => (
@@ -340,8 +343,6 @@ export default function Home() {
             <p>I came to software from competitive English debate — winner of the Make Friends Cup national tournament as Defense Speaker, arguing a ~40-page case built over months of research. More recently: Japan champion and 5th worldwide in the 2025 Youth Fact-Checking Competition. Research a space, build the argument, defend it live — the engineering habits came from there.</p>
           </div>
         </section>
-
-        <section id="about" className="about-section wrap section" aria-labelledby="about-title"><div className="section-label"><span>05 / A LITTLE ABOUT ME</span><span>ALWAYS A WORK IN PROGRESS</span></div><div className="about-grid"><div><h2 id="about-title">A global perspective.<br />A builder’s mindset.</h2><div className="profile-intro"><Image className="profile-photo" src="/noriaki-profile.png" alt="Noriaki Kishida in front of the Golden Gate Bridge" width={320} height={320} sizes="(max-width: 640px) 112px, 156px" priority /><p className="about-lead">I’m studying Computer Science and Artificial Intelligence at Minerva University, with a minor in Economics.</p></div><p>I’m most interested in AI systems that get past the isolated prompt — tools that hold context, work across a whole workflow, and help people make better decisions. That interest has taken me from confidential inference on AWS Nitro Enclaves to autonomous agents, browser-native research tooling, and local-first desktop software.</p><p>Minerva moved me through teams in Japan, South Korea, and Taiwan, and I’m now based in San Francisco. Wherever a project starts, I care about taking it all the way to something people can actually use.</p><div className="education"><span className="education-mark" aria-hidden="true">M</span><div><strong>Minerva University</strong><span>B.Sc. Computer Science &amp; AI · Expected May 2027</span></div></div></div><div className="toolkit"><span className="toolkit-title">TOOLS I REACH FOR</span><div><h3>Languages</h3><p>Python <span>/</span> TypeScript <span>/</span> JavaScript<br />Rust <span>/</span> SQL</p></div><div><h3>Products &amp; interfaces</h3><p>React <span>/</span> Next.js <span>/</span> Tauri<br />Flask <span>/</span> FastAPI <span>/</span> Node.js</p></div><div><h3>AI &amp; infrastructure</h3><p>OpenAI <span>/</span> Claude <span>/</span> PyTorch <span>/</span> AWS<br />Supabase <span>/</span> Convex <span>/</span> Docker <span>/</span> n8n</p></div><div className="toolkit-note"><span aria-hidden="true">↳</span> The right tool for the problem.<br />Always learning the next one.</div></div></div></section>
 
         <section id="contact" className="contact-section wrap" aria-labelledby="contact-title"><div className="section-label"><span>06 / WHAT’S NEXT?</span><span><span className="status-dot" /> START WITH A CONVERSATION</span></div><div className="contact-heading"><h2 id="contact-title">Let’s build<br /><em>something good.</em></h2><a className="contact-arrow" href={`mailto:${PROFILE.email}`} aria-label="Email Noriaki Kishida"><Arrow /></a></div><div className="contact-bottom"><EmailContact /><div className="social-links"><a href={PROFILE.github} {...ext}><GitHubMark /> GitHub <Arrow /></a><a href={PROFILE.linkedin} {...ext}><LinkedInMark /> LinkedIn <Arrow /></a><a href={PROFILE.resume} {...ext}>Resume <Arrow /></a></div></div></section>
       </main>

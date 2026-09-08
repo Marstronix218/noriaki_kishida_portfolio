@@ -128,28 +128,28 @@ h3 { margin: 8px 0 0; font-size: 28px; letter-spacing: -.8px; font-weight: 500; 
 .project-build dd { margin: 0; font-size: 15px; line-height: 1.75; color: var(--muted); }
 
 /* Research Copilot artwork */
-.rc-art { height: 342px; background: #e0d9c4; color: #35311f; display: grid; grid-template-columns: 1fr 1.25fr; gap: 24px; align-items: center; padding: 40px 64px; }
+.rc-art { height: 290px; background: #e0d9c4; color: #35311f; display: grid; grid-template-columns: 1fr 1.15fr; gap: 16px; align-items: center; padding: 26px 30px; }
 .rc-copy { display: flex; flex-direction: column; align-items: start; }
-.rc-logo { font-size: 46px; font-weight: 600; letter-spacing: -2.6px; line-height: 1.02; margin: 12px 0 14px; }
+.rc-logo { font-size: 30px; font-weight: 600; letter-spacing: -1.6px; line-height: 1.03; margin: 10px 0 11px; }
 .rc-logo > span { display: block; color: #7d7346; }
-.rc-tagline { font-size: 17px; line-height: 1.4; letter-spacing: -.5px; }
-.rc-panel { width: 100%; max-width: 480px; margin-left: auto; background: #faf8f0; border: 1px solid #c8c0a6; box-shadow: 0 20px 40px #4a422017; border-radius: 10px; transform: rotate(2deg) translateY(11px); transition: transform 300ms; }
+.rc-tagline { font-size: 13px; line-height: 1.4; letter-spacing: -.4px; }
+.rc-panel { width: 100%; max-width: 300px; margin-left: auto; background: #faf8f0; border: 1px solid #c8c0a6; box-shadow: 0 16px 32px #4a422017; border-radius: 9px; transform: rotate(2deg) translateY(8px); transition: transform 300ms; }
 .project:hover .rc-panel { transform: rotate(1deg) translateY(6px); }
 .rc-panel .window-top { border-bottom-color: #e4ddc8; color: #756c4c; }
 .rc-panel .window-dots i { background: #cbc4ac; }
-.rc-panel-body { padding: 20px 25px 13px; }
+.rc-panel-body { padding: 15px 16px 10px; }
 .rc-goal { border-left: 2px solid #a99a5e; padding-left: 12px; }
 .rc-goal-label { display: block; font-family: var(--font-mono), monospace; font-size: 7px; letter-spacing: 1px; color: #7d7346; }
-.rc-goal b { display: block; font-size: 19px; font-weight: 500; letter-spacing: -.5px; margin-top: 6px; }
-.rc-questions { list-style: none; margin: 15px 0 0; padding: 0; display: grid; gap: 7px; }
-.rc-questions li { display: flex; align-items: center; gap: 8px; font-size: 10px; color: #4d472f; }
-.rc-questions i { font-style: normal; width: 13px; height: 13px; display: grid; place-items: center; border-radius: 50%; font-size: 7px; flex-shrink: 0; }
+.rc-goal b { display: block; font-size: 15px; font-weight: 500; letter-spacing: -.4px; margin-top: 5px; }
+.rc-questions { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 6px; }
+.rc-questions li { display: flex; align-items: center; gap: 7px; font-size: 8px; color: #4d472f; }
+.rc-questions i { font-style: normal; width: 12px; height: 12px; display: grid; place-items: center; border-radius: 50%; font-size: 7px; flex-shrink: 0; }
 .rc-questions i.done { background: #cfd8a8; color: #44521e; }
 .rc-questions i.open { border: 1px solid #c3bb9e; color: #8b825f; }
-.rc-gap { display: flex; align-items: center; gap: 10px; background: #efe9d6; padding: 11px; border-radius: 5px; margin-top: 14px; }
-.rc-gap-icon { font-size: 22px; }
-.rc-gap b { font-size: 10px; font-weight: 500; }
-.rc-gap p { font-size: 8px; margin: 4px 0 0; color: #6b6141; }
+.rc-gap { display: flex; align-items: center; gap: 9px; background: #efe9d6; padding: 9px; border-radius: 5px; margin-top: 11px; }
+.rc-gap-icon { font-size: 18px; }
+.rc-gap b { font-size: 9px; font-weight: 500; }
+.rc-gap p { font-size: 7px; margin: 3px 0 0; color: #6b6141; }
 .rc-gap > span:last-child { margin-left: auto; font-size: 12px; }
 .rc-panel .window-foot { color: #7d7454; }
 
@@ -200,8 +200,8 @@ h3 { margin: 8px 0 0; font-size: 28px; letter-spacing: -.8px; font-weight: 500; 
 .experience-section .job-link:hover { color: #486832; }
 
 @media (max-width: 1100px) {
-  .rc-art { padding-inline: 38px; }
-  .rc-logo { font-size: 40px; }
+  .rc-art { padding-inline: 24px; }
+  .rc-logo { font-size: 26px; letter-spacing: -1.3px; }
   .contrast-row { grid-template-columns: 160px minmax(0, 1fr); }
   .case-grid { gap: 36px; }
   .case-body { gap: 36px; }
@@ -209,22 +209,33 @@ h3 { margin: 8px 0 0; font-size: 28px; letter-spacing: -.8px; font-weight: 500; 
 }
 
 @media (max-width: 800px) and (min-width: 641px) {
-  .rc-art { padding-inline: 25px; gap: 18px; }
-  .rc-logo { font-size: 33px; letter-spacing: -1.8px; }
-  .rc-tagline { font-size: 15px; }
-  .rc-panel { transform: rotate(2deg); }
-  .rc-panel-body { padding: 17px 16px 12px; }
-  .rc-goal b { font-size: 16px; }
+  .rc-art { height: 280px; grid-template-columns: 1fr 1.3fr; padding: 22px 18px; gap: 6px; }
+  .rc-art .art-caption { display: none; }
+  .rc-logo { font-size: 21px; letter-spacing: -1px; margin: 7px 0 8px; }
+  .rc-tagline { font-size: 10px; }
+  .rc-panel { width: 215px; max-width: none; transform: rotate(3deg) translateX(8px); }
+  .rc-panel .window-top { font-size: 6px; padding-inline: 9px; gap: 4px; }
+  .rc-panel-body { padding: 14px 12px 10px; }
+  .rc-goal-label { font-size: 6px; }
+  .rc-goal b { font-size: 13px; }
+  .rc-questions { margin-top: 11px; gap: 5px; }
+  .rc-questions li { font-size: 7px; gap: 6px; }
+  .rc-questions i { width: 11px; height: 11px; font-size: 6px; }
+  .rc-gap { padding: 8px; gap: 7px; margin-top: 10px; }
+  .rc-gap-icon { font-size: 17px; }
+  .rc-gap b { font-size: 8px; }
+  .rc-gap p { font-size: 6px; }
 }
 
 @media (max-width: 640px) {
   .hero-socials a { width: 46px; height: 46px; }
   .project-build { padding-top: 15px; }
   .project-build dd { font-size: 15px; }
-  .rc-art { height: 310px; grid-template-columns: 1fr 1.3fr; padding: 24px 20px; gap: 6px; }
+  .rc-art { height: 280px; grid-template-columns: 1fr 1.3fr; padding: 22px 20px; gap: 6px; }
+  .rc-art .art-caption { display: none; }
   .rc-logo { font-size: 22px; letter-spacing: -1.1px; margin: 8px 0 9px; }
   .rc-tagline { font-size: 11px; }
-  .rc-panel { width: 225px; transform: rotate(3deg) translateX(10px); }
+  .rc-panel { width: 225px; max-width: none; transform: rotate(3deg) translateX(10px); }
   .rc-panel .window-top { font-size: 6px; padding-inline: 9px; gap: 4px; }
   .rc-panel-body { padding: 15px 13px 11px; }
   .rc-goal b { font-size: 14px; }
@@ -307,3 +318,15 @@ h3 { margin: 8px 0 0; font-size: 28px; letter-spacing: -.8px; font-weight: 500; 
 .social-links { flex-wrap: wrap; }
 .social-links a { gap: 8px; }
 @media (max-width: 640px) { .social-links { gap: 10px 20px; } }
+
+/* Explicit link between the knov card and its case study */
+.case-badge { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 15px; margin-bottom: 20px; border: 1px solid #4f6039; border-radius: 4px; color: var(--lime); font-size: 13px; line-height: 1.4; transition: background 180ms, border-color 180ms; }
+.case-badge:hover { background: #252c20; border-color: var(--lime); }
+.case-title-block { min-width: 0; }
+.case-project { display: inline-flex; align-items: baseline; font-size: 27px; font-weight: 600; letter-spacing: -1.7px; line-height: 1; margin-bottom: 17px; }
+.case-project > span { color: var(--lime); font-size: 9px; letter-spacing: 0; margin-left: 5px; }
+.case-section .section-heading > p strong { color: var(--paper); font-weight: 500; }
+@media (max-width: 640px) {
+  .case-badge { font-size: 12px; margin-bottom: 16px; }
+  .case-project { font-size: 23px; letter-spacing: -1.4px; margin-bottom: 13px; }
+}

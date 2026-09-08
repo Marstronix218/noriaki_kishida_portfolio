@@ -19,30 +19,13 @@ export type Project = {
   build: string;
   tags: string[];
   links: ProjectLink[];
+  /** Renders a prominent badge linking down to the featured case study. */
+  caseStudy?: boolean;
   /** Destination for the circular arrow in the card heading. */
   primary: { href: string; label: string };
 };
 
 export const FEATURED_PROJECTS: Project[] = [
-  {
-    id: 'research-copilot',
-    name: 'Research Copilot',
-    category: 'BROWSER-NATIVE AI · PERSONAL PROJECT',
-    summary:
-      'A goal-oriented research assistant that lives in the browser. You give it a research goal; it generates the questions worth answering, reads the pages you actually visit, keeps only the goal-relevant insights, and tells you when you have drifted off topic.',
-    buildLabel: 'Built',
-    build:
-      'A Chrome extension — popup for setup, side panel for the workspace — over a FastAPI backend that handles goal clarification, question generation, and page analysis. Insights cluster by topic or timeline, drift detection watches the session, and heuristic fallbacks keep the extension useful when no model key is configured.',
-    tags: ['JavaScript', 'FastAPI', 'OpenAI', 'Chrome Extension'],
-    links: [
-      { label: 'Case study', href: '#case-study' },
-      { label: 'Source code', href: 'https://github.com/Marstronix218/Research-Copilot', external: true },
-    ],
-    primary: {
-      href: 'https://github.com/Marstronix218/Research-Copilot',
-      label: 'Explore Research Copilot on GitHub',
-    },
-  },
   {
     id: 'knov',
     name: 'knov',
@@ -53,7 +36,9 @@ export const FEATURED_PROJECTS: Project[] = [
     build:
       'A Tauri 2 and Rust core with a React front end over a local SQLite store. Activity is packed into sanitized, token-budgeted context — full URLs, absolute paths, and credential-like fields stripped before anything reaches a provider — with 30-day retention, pause and delete controls, and Keychain-secured credentials.',
     tags: ['Tauri 2', 'Rust', 'React', 'SQLite'],
+    caseStudy: true,
     links: [
+      { label: 'Read the case study', href: '#case-study' },
       { label: 'Source code', href: 'https://github.com/Marstronix218/knov', external: true },
     ],
     primary: { href: 'https://github.com/Marstronix218/knov', label: 'Explore knov on GitHub' },
@@ -130,53 +115,71 @@ export const PROJECTS: Project[] = [
     ],
     primary: { href: 'https://idobata-ai.com', label: 'Open idobataAI' },
   },
+  {
+    id: 'research-copilot',
+    name: 'Research Copilot',
+    category: 'BROWSER-NATIVE AI · PERSONAL PROJECT',
+    summary:
+      'A goal-oriented research assistant that lives in the browser. You give it a research goal; it generates the questions worth answering, reads the pages you actually visit, keeps only the goal-relevant insights, and tells you when you have drifted off topic.',
+    buildLabel: 'Built',
+    build:
+      'A Chrome extension — popup for setup, side panel for the workspace — over a FastAPI backend that handles goal clarification, question generation, and page analysis. Insights cluster by topic or timeline, drift detection watches the session, and heuristic fallbacks keep the extension useful when no model key is configured.',
+    tags: ['JavaScript', 'FastAPI', 'OpenAI', 'Chrome Extension'],
+    links: [
+      { label: 'Source code', href: 'https://github.com/Marstronix218/Research-Copilot', external: true },
+    ],
+    primary: {
+      href: 'https://github.com/Marstronix218/Research-Copilot',
+      label: 'Explore Research Copilot on GitHub',
+    },
+  },
 ];
 
 export const CASE_STUDY = {
   contrast: [
-    { label: 'TRADITIONAL AI', steps: ['Ask', 'Answer'] },
+    { label: 'TYPICAL AI ASSISTANT', steps: ['Hand over your activity', 'Get context'] },
     {
-      label: 'RESEARCH COPILOT',
-      steps: ['Observe', 'Understand context', 'Track knowledge', 'Find gaps', 'Guide next steps'],
+      label: 'KNOV',
+      steps: ['Collect locally', 'Build work threads', 'Sanitize', 'Budget tokens', 'Send only that'],
     },
   ],
   problem:
-    'Web research falls apart in the open tabs. You lose track of sources, read without synthesizing, re-cover ground you already covered, and drift away from the question you started with. None of that is a knowledge problem — it is a process problem.',
+    'Your working context is real but scattered — across app windows, browser tabs, editors, and documents — and it evaporates the moment you switch tasks. The assistants that could rebuild it are the ones you have to hand your activity to first. The tool that would know the most about your day is the one you trust least.',
   insight:
-    'So I did not build another chatbot. I built a layer that watches the research process itself: it holds the goal, follows what you actually read, and stays useful precisely because it is not waiting to be prompted.',
+    'So the context gets assembled where the data already lives. Everything is collected and stored on the machine, and the only thing that reaches a model is a small, sanitized, token-budgeted packet — assembled by code the user can inspect rather than by a prompt.',
   approach: [
-    'Clarify a vague goal through a short multi-step exchange.',
-    'Generate four to six concrete research questions to structure the session.',
-    'Analyze pages automatically as they are visited.',
-    'Extract only the insights that serve the stated goal.',
-    'Keep structured session state — sources, insights, and questions answered.',
-    'Detect drift and surface the gaps that are still open.',
-    'Leave the user to accept or reject every insight.',
+    'Collect foreground app activity and window titles through native macOS APIs.',
+    'Bootstrap up to 90 days of history from an explicitly chosen Chrome profile.',
+    'Take metadata-only Local History and Git-path signals from editors — never file contents.',
+    'Write it all to a local SQLite store with 30-day detailed-activity retention.',
+    'Assemble semantic work threads across app, browser, document, and editor evidence.',
+    'Pack context deterministically, dropping full URLs, absolute paths, and credential-like fields.',
+    'Send only that token-budgeted packet to the provider the user brought a key for.',
   ],
   architecture: [
     {
-      title: 'Frontend',
-      body: 'Chrome extension: a popup for session setup and settings, a side panel workspace for insights, questions, and source review.',
+      title: 'Desktop app',
+      body: 'A Tauri 2 shell with a Rust core for collection and packing, and a React and TypeScript surface for the dashboard, activity inspection, and profile corrections.',
     },
     {
-      title: 'Backend',
-      body: 'A FastAPI service owning goal refinement, model interaction, page analysis, and session organization — kept thin enough to run locally.',
+      title: 'Store',
+      body: 'Local SQLite, and nothing else. Detailed activity is kept 30 days; imported history past that window is cleaned up automatically.',
     },
     {
-      title: 'Storage',
-      body: 'Browser-local session state via chrome.storage.local, with the boundary drawn so cloud persistence can be added later without touching the extension.',
+      title: 'Companion',
+      body: 'An optional Chrome MV3 extension adds active-tab timing. It is a post-MVP experiment, not a dependency — the desktop app works without it.',
     },
     {
-      title: 'Degradation',
-      body: 'The OpenAI key is optional. Without one, heuristic fallbacks keep clarification and analysis working instead of failing shut.',
+      title: 'Providers',
+      body: 'OpenAI, Anthropic, or Amazon Bedrock on bring-your-own-key credentials, held in the macOS Keychain. Exclusion lists drop named apps and domains locally, before they can reach a profile at all.',
     },
   ],
   decision: {
     title: 'The decision I would defend',
-    body: 'Showing an AI-generated insight and saving one are separate operations. It would have been easier to persist everything the model produced, but a research tool that quietly fills your notes with its own guesses is worse than no tool. The human stays the one who commits.',
+    body: 'Sanitization is deterministic and happens in the Rust core before any model call — stripping full URLs, absolute paths, credential-like fields, and unrelated raw activity, then enforcing a token budget. Handing the model everything and instructing it to be careful would have been far less work. But a privacy guarantee that depends on a model behaving is not a guarantee. Putting it in the packer makes it a property of the system.',
   },
   takeaway:
-    'The shift that matters here is from prompt-based AI to context-aware, process-oriented AI — a system that earns its place by understanding what you are already doing, not by waiting for a better prompt.',
+    'Local-first is a constraint rather than a marketing line: it decides what you can collect, where you can compute, and how much you are ever allowed to send. It also forces honesty about inference — knov presents work threads as inferences rather than confirmed intent and lets you correct them, because a system that quietly guesses at your day and sounds certain is worse than one that asks.',
 };
 
 export type Job = {
