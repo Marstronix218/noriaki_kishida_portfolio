@@ -49,6 +49,7 @@ h1 em { font-style: normal; color: var(--lime); }
 .axis-x { transform: rotate(-28deg); }
 .axis-y { transform: rotate(62deg); }
 .orbit-dot { position: absolute; border-radius: 50%; background: var(--lime); width: 7px; height: 7px; }
+.orbit-photo { position: absolute; width: 56%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 1px solid #59634e; filter: saturate(.88) contrast(1.03); box-shadow: 0 0 0 10px var(--ink), 0 0 32px #b8fb4522; }
 .dot-one { top: 28%; right: -1%; }.dot-two { bottom: 5%; left: 31%; width: 4px; height: 4px; }
 @keyframes orbit { to { transform: rotateZ(-27deg) rotateX(24deg) rotateY(374deg); } }
 @media (min-width: 1600px) { .hero-grid { padding-block: 70px 90px; } }
