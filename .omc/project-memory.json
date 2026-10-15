@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1791836442043,
+  "lastScanned": 1792037856124,
   "projectRoot": "/Users/nori/Desktop/noriaki_kishida_portfolio",
   "techStack": {
     "languages": [],
@@ -33,7 +33,7 @@
       "path": "site",
       "purpose": null,
       "fileCount": 11,
-      "lastAccessed": 1791836442000,
+      "lastAccessed": 1792037856106,
       "keyFiles": [
         "DESIGN.md",
         "README.md",
@@ -46,7 +46,7 @@
       "path": "site/app",
       "purpose": "Application code",
       "fileCount": 5,
-      "lastAccessed": 1791836442003,
+      "lastAccessed": 1792037856107,
       "keyFiles": [
         "content.ts",
         "email-contact.tsx",
@@ -57,7 +57,7 @@
       "path": "site/dist",
       "purpose": "Distribution/build output",
       "fileCount": 0,
-      "lastAccessed": 1791836442005,
+      "lastAccessed": 1792037856107,
       "keyFiles": []
     }
   },

@@ -181,7 +181,7 @@ export default function Home() {
       <header className="site-header wrap">
         <a className="wordmark" href="#" aria-label="Noriaki Kishida, home">N<span>/</span>K</a>
         <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#recognition">Recognition</a></nav>
-        <a className="header-contact" href={`mailto:${PROFILE.email}`}>Let’s talk <Arrow /></a>
+        <a className="header-contact" href={PROFILE.booking} {...ext}>Book a 30-min call <Arrow /></a>
       </header>
       <main id="main">
         <section className="hero wrap" aria-labelledby="hero-title">
@@ -345,7 +345,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="contact-section wrap" aria-labelledby="contact-title"><div className="section-label"><span>06 / WHAT’S NEXT?</span><span><span className="status-dot" /> START WITH A CONVERSATION</span></div><div className="contact-heading"><h2 id="contact-title">Let’s build<br /><em>something good.</em></h2><a className="contact-arrow" href={`mailto:${PROFILE.email}`} aria-label="Email Noriaki Kishida"><Arrow /></a></div><div className="contact-bottom"><EmailContact /><div className="social-links"><a href={PROFILE.github} {...ext}><GitHubMark /> GitHub <Arrow /></a><a href={PROFILE.linkedin} {...ext}><LinkedInMark /> LinkedIn <Arrow /></a><a href={PROFILE.resume} {...ext}>Resume <Arrow /></a></div></div></section>
+        <section id="contact" className="contact-section wrap" aria-labelledby="contact-title"><div className="section-label"><span>06 / WHAT’S NEXT?</span><span><span className="status-dot" /> START WITH A CONVERSATION</span></div><div className="contact-heading"><h2 id="contact-title">Let’s build<br /><em>something good.</em></h2><a className="contact-arrow" href={PROFILE.booking} {...ext} aria-label="Book a 30-minute call with Noriaki Kishida (opens in a new tab)"><Arrow /></a></div><div className="contact-bottom"><EmailContact /><div className="social-links"><a href={PROFILE.booking} {...ext}>Book a 30-min call <Arrow /></a><a href={PROFILE.github} {...ext}><GitHubMark /> GitHub <Arrow /></a><a href={PROFILE.linkedin} {...ext}><LinkedInMark /> LinkedIn <Arrow /></a><a href={PROFILE.resume} {...ext}>Resume <Arrow /></a></div></div></section>
       </main>
       <footer className="site-footer wrap"><a className="wordmark" href="#" aria-label="Back to top">N<span>/</span>K</a><span>© 2026 NORIAKI KISHIDA</span><a href="#">BACK TO TOP <span aria-hidden="true">↑</span></a></footer>
     </>

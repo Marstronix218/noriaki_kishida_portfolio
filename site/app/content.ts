@@ -4,6 +4,7 @@ export const PROFILE = {
   github: 'https://github.com/Marstronix218',
   linkedin: 'https://www.linkedin.com/in/noriaki-kishida/',
   resume: '/noriaki_kishida_resume.pdf',
+  booking: 'https://calendar.app.google/HjcaG9E9GjMQDQ3B7',
 };
 
 export type ProjectLink = { label: string; href: string; external?: boolean };
