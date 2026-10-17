@@ -28,14 +28,16 @@ const LinkedInMark = () => (
 function Orbit() {
   return (
     <div className="orbit-art" aria-hidden="true">
-      <div className="art-top"><span>IDEA → SYSTEM</span><span>NK—001</span></div>
+      <div className="art-top"><span>IDEA → SYSTEM</span><span>NK-001</span></div>
+      <div className="hero-photo">
+        <Image src="/noriaki-presenting.jpg" alt="" width={544} height={680} sizes="(max-width: 640px) 76vw, 400px" priority />
+        <span className="photo-tag"><span className="status-dot" /> LIVE DEMO · HACKATHON</span>
+      </div>
       <div className="orbit-scene">
         <div className="orbit-sphere">
           {Array.from({ length: 16 }, (_, i) => <i key={i} style={{ transform: `rotateY(${i * 11.25}deg)` }} />)}
         </div>
-        <span className="orbit-axis axis-x" /><span className="orbit-axis axis-y" />
         <span className="orbit-dot dot-one" /><span className="orbit-dot dot-two" />
-        <Image className="orbit-photo" src="/noriaki-profile.png" alt="" width={320} height={320} sizes="(max-width: 640px) 140px, 210px" priority />
       </div>
       <div className="art-bottom"><span>CURIOUS BY DEFAULT.<br />BUILDER BY CHOICE.</span><span className="coordinates">37.77° N<br />122.42° W</span></div>
     </div>
@@ -233,7 +235,7 @@ export default function Home() {
         <section id="case-study" className="case-section" aria-labelledby="case-title">
           <div className="wrap section">
             <div className="section-label"><span>02 / FEATURED CASE STUDY</span><span>LOCAL-FIRST · MACOS</span></div>
-            <div className="section-heading"><div className="case-title-block"><span className="case-project">knov</span><h2 id="case-title">Local by architecture,<br />not by promise.</h2></div><p>A closer look at <strong>knov</strong>, the local-first macOS assistant from the work above — how it rebuilds your working context on your own machine, and why so little of it ever leaves. Technical alpha, Apple Silicon.</p></div>
+            <div className="section-heading"><div className="case-title-block"><span className="case-project">knov</span><h2 id="case-title">Local by architecture,<br />not by promise.</h2></div><p>A closer look at <strong>knov</strong>, the local-first macOS assistant from the work above: how it rebuilds your working context on your own machine, and why so little of it ever leaves. Technical alpha, Apple Silicon.</p></div>
 
             <div className="contrast">
               {CASE_STUDY.contrast.map((row) => (
@@ -293,14 +295,14 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="about" className="about-section wrap section" aria-labelledby="about-title"><div className="section-label"><span>03 / A LITTLE ABOUT ME</span><span>ALWAYS A WORK IN PROGRESS</span></div><div className="about-grid"><div><h2 id="about-title">A global perspective.<br />A builder’s mindset.</h2><div className="profile-intro"><Image className="profile-photo" src="/noriaki-profile.png" alt="Noriaki Kishida in front of the Golden Gate Bridge" width={320} height={320} sizes="(max-width: 640px) 112px, 156px" /><p className="about-lead">I’m studying Computer Science and Artificial Intelligence at Minerva University.</p></div><p>I’m most interested in AI systems that get past the isolated prompt — tools that hold context, work across a whole workflow, and help people make better decisions. That interest has taken me from confidential inference on AWS Nitro Enclaves to autonomous agents, browser-native research tooling, and local-first desktop software.</p><p>Minerva moved me through teams in Japan, South Korea, and Taiwan, and I’m now based in San Francisco. Wherever a project starts, I care about taking it all the way to something people can actually use.</p><div className="education"><span className="education-mark" aria-hidden="true">M</span><div><strong>Minerva University</strong><span>B.Sc. Computer Science &amp; AI · Expected May 2027</span></div></div></div><div className="toolkit"><span className="toolkit-title">TOOLS I REACH FOR</span><div><h3>Languages</h3><p>Python <span>/</span> TypeScript <span>/</span> JavaScript<br />Rust <span>/</span> SQL</p></div><div><h3>Products &amp; interfaces</h3><p>React <span>/</span> Next.js <span>/</span> Tauri<br />Flask <span>/</span> FastAPI <span>/</span> Node.js</p></div><div><h3>AI &amp; infrastructure</h3><p>OpenAI <span>/</span> Claude <span>/</span> PyTorch <span>/</span> AWS<br />Supabase <span>/</span> Convex <span>/</span> Docker <span>/</span> n8n</p></div><div className="toolkit-note"><span aria-hidden="true">↳</span> The right tool for the problem.<br />Always learning the next one.</div></div></div></section>
+        <section id="about" className="about-section wrap section" aria-labelledby="about-title"><div className="section-label"><span>03 / A LITTLE ABOUT ME</span><span>ALWAYS A WORK IN PROGRESS</span></div><div className="about-grid"><div><h2 id="about-title">A global perspective.<br />A builder’s mindset.</h2><div className="profile-intro"><Image className="profile-photo" src="/noriaki-profile.png" alt="Noriaki Kishida in front of the Golden Gate Bridge" width={320} height={320} sizes="(max-width: 640px) 112px, 156px" /><p className="about-lead">I’m studying Computer Science and Artificial Intelligence at Minerva University.</p></div><p>I’m most interested in AI systems that get past the isolated prompt: tools that hold context, work across a whole workflow, and help people make better decisions. That interest has taken me from confidential inference on AWS Nitro Enclaves to autonomous agents, browser-native research tooling, and local-first desktop software.</p><p>Minerva moved me through teams in Japan, South Korea, and Taiwan, and I’m now based in San Francisco. Wherever a project starts, I care about taking it all the way to something people can actually use.</p><div className="education"><span className="education-mark" aria-hidden="true">M</span><div><strong>Minerva University</strong><span>B.Sc. Computer Science &amp; AI · Expected May 2027</span></div></div></div><div className="toolkit"><span className="toolkit-title">TOOLS I REACH FOR</span><div><h3>Languages</h3><p>Python <span>/</span> TypeScript <span>/</span> JavaScript<br />Rust <span>/</span> SQL</p></div><div><h3>Products &amp; interfaces</h3><p>React <span>/</span> Next.js <span>/</span> Tauri<br />Flask <span>/</span> FastAPI <span>/</span> Node.js</p></div><div><h3>AI &amp; infrastructure</h3><p>OpenAI <span>/</span> Claude <span>/</span> PyTorch <span>/</span> AWS<br />Supabase <span>/</span> Docker <span>/</span> n8n</p></div><div className="toolkit-note"><span aria-hidden="true">↳</span> The right tool for the problem.<br />Always learning the next one.</div></div></div></section>
 
 
         <section id="experience" className="experience-section" aria-labelledby="experience-title"><div className="wrap section">
           <div className="section-label"><span>04 / EXPERIENCE</span><span>BEYOND THE SIDE PROJECTS</span></div>
-          <div className="impact-stats"><div><strong>60<span>→</span>5<small>min</small></strong><span>Secure AI setup time<br />EAGLYS</span></div><div><strong>45<span>+</span></strong><span>RSS feeds automated<br />Capital Launchers</span></div><div><strong>50<span>+</span></strong><span>AI agent workflows managed<br />GSP Cloud</span></div></div>
+          <div className="impact-stats"><div><strong>60<span>→</span>5<small>min</small></strong><span>Secure AI setup time<br />EAGLYS</span></div><div><strong>45<span>+</span></strong><span>RSS feeds automated<br />Global Launchers Inc.</span></div><div><strong>50<span>+</span></strong><span>AI agent workflows managed<br />GSP Cloud</span></div></div>
           <div className="experience-grid">
-            <div className="experience-intro"><h2 id="experience-title">Real teams.<br />Real impact.</h2><p>Four internships and a tech lead role across Japan, South Korea, and Taiwan — building where engineering meets a real constraint: security, cost, or time.</p><a className="text-link" href={PROFILE.resume} download>Download my resume <span aria-hidden="true">↓</span></a></div>
+            <div className="experience-intro"><h2 id="experience-title">Real teams.<br />Real impact.</h2><p>Four internships and a tech lead role across Japan, South Korea, and Taiwan, building where engineering meets a real constraint: security, cost, or time.</p><a className="text-link" href={PROFILE.resume} download>Download my resume <span aria-hidden="true">↓</span></a></div>
             <div className="timeline">
               {EXPERIENCE.map((job, index) => (
                 <details className="experience-item" key={job.company} open={index === 0}>
@@ -323,7 +325,7 @@ export default function Home() {
 
         <section id="recognition" className="recognition-section wrap section" aria-labelledby="recognition-title">
           <div className="section-label"><span>05 / SELECTED RECOGNITION</span><span>BUILT UNDER PRESSURE</span></div>
-          <div className="section-heading"><h2 id="recognition-title">Shipped on the clock.</h2><p>Four podium finishes at hackathons between 2024 and 2026, each one a working product by the deadline.</p></div>
+          <div className="section-heading"><h2 id="recognition-title">Shipped on the clock.</h2><p>Seven hackathon awards and a world fact-checking final between 2024 and 2026, each one won under a deadline.</p></div>
           <ul className="award-list">
             {RECOGNITION.map((award) => (
               <li className="award-row" key={`${award.year}-${award.event}`}>
@@ -333,15 +335,15 @@ export default function Home() {
                   <span className="award-event">{award.event}</span>
                 </span>
                 <span className="award-detail">{award.detail}</span>
-                {award.link
-                  ? <a className="text-link award-link" href={award.link.href} {...ext}>{award.link.label} <Arrow /></a>
-                  : <span className="award-link" />}
+                <span className="award-links">
+                  {award.links?.map((link) => <a key={link.href} className="text-link award-link" href={link.href} {...ext}>{link.label} <Arrow /></a>)}
+                </span>
               </li>
             ))}
           </ul>
           <div className="beyond">
             <span className="beyond-label">BEYOND ENGINEERING</span>
-            <p>I came to software from competitive English debate — winner of the Make Friends Cup national tournament as Defense Speaker, arguing a ~40-page case built over months of research. More recently: Japan champion and 5th worldwide in the 2025 Youth Fact-Checking Competition. Research a space, build the argument, defend it live — the engineering habits came from there.</p>
+            <p>I came to software from competitive English debate. I won the Make Friends Cup national tournament as Defense Speaker, arguing a ~40-page case built over months of research. Research a space, build the argument, defend it live. The engineering habits came from there.</p>
           </div>
         </section>
 
