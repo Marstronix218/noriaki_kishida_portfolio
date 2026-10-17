@@ -1,0 +1,22 @@
+# Agent tooling state (oh-my-claudecode / omx)
+.omc/*
+!.omc/skills/
+.omx/
+site/.omc/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Environment
+.env*
+!.env.example
+
+# Logs
+*.log
