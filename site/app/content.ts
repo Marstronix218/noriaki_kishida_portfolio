@@ -24,6 +24,8 @@ export type Project = {
   caseStudy?: boolean;
   /** Destination for the circular arrow in the card heading. */
   primary: { href: string; label: string };
+  /** Real product screenshot shown on a tinted frame; cards without one fall back to illustrated art. */
+  screenshot?: { src: string; alt: string; width: number; height: number; tint: string };
 };
 
 export const FEATURED_PROJECTS: Project[] = [
@@ -32,10 +34,10 @@ export const FEATURED_PROJECTS: Project[] = [
     name: 'knov',
     category: 'PERSONAL PROJECT · TECHNICAL ALPHA',
     summary:
-      'A local-first macOS assistant that turns app, browser, and editor activity into semantic work threads and useful next steps, so you can pick up where your mind left off.',
+      'A local-first macOS app that finds revenue a small service business is about to miss. It cross-checks contracts, email, Slack, and work activity to catch unbilled extra work, missing invoices, and overdue promises, shows the evidence behind each one, and recommends the next step without ever acting on its own.',
     buildLabel: 'Built',
     build:
-      'A Tauri 2 and Rust core with a React front end over a local SQLite store. Activity is packed into sanitized, token-budgeted context (full URLs, absolute paths, and credential-like fields are stripped before anything reaches a provider), with 30-day retention, pause and delete controls, and Keychain-secured credentials.',
+      'A Tauri 2 and Rust core with a React front end over a local SQLite store. Detection is a deterministic rule engine, not a model: every finding needs source evidence, unknown amounts stay unknown, and money is tracked in integer cents. It sits on a local context layer that groups app, browser, and editor activity into work threads, with read-only Gmail and Slack connectors, Keychain-held credentials, and a local model or your own API key for the optional AI features.',
     tags: ['Tauri 2', 'Rust', 'React', 'SQLite'],
     caseStudy: true,
     links: [
@@ -43,6 +45,7 @@ export const FEATURED_PROJECTS: Project[] = [
       { label: 'Source code', href: 'https://github.com/Marstronix218/knov', external: true },
     ],
     primary: { href: 'https://github.com/Marstronix218/knov', label: 'Explore knov on GitHub' },
+    screenshot: { src: '/projects/knov.webp', alt: 'knov Home page in simulation mode, listing an uninvoiced milestone and an overdue promise with the evidence behind each and a recommended action', width: 1600, height: 1000, tint: '#dce4d5' },
   },
 ];
 
@@ -63,6 +66,7 @@ export const PROJECTS: Project[] = [
       { label: 'Source code', href: 'https://github.com/syang0624/hookloop', external: true },
     ],
     primary: { href: 'https://hookloop-ruddy.vercel.app', label: 'Open the HookLoop demo' },
+    screenshot: { src: '/projects/hookloop.webp', alt: 'HookLoop week-two results: ad variants marked winning or killed, a creative-DNA cost heatmap, and a seven-day CAC chart', width: 1106, height: 694, tint: '#c7b8d9' },
   },
   {
     id: 'solid',
@@ -85,6 +89,29 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    id: 'confidential-llm',
+    name: 'Confidential LLM',
+    category: 'CONFIDENTIAL COMPUTING · OPEN SOURCE',
+    summary:
+      'A chat app whose language model runs inside an AWS Nitro Enclave. Prompts and answers are encrypted end to end, so the server hosting the model only ever relays ciphertext, and not even its administrator can read what you asked.',
+    buildLabel: 'Built',
+    build:
+      'Three parts with a hard trust boundary: a Flask control plane that holds the keys and drives EC2, SSM, and KMS through boto3; a data-plane host that only bridges HTTP to vsock; and the enclave, which decrypts, runs Qwen2.5-0.5B, and re-encrypts the answer. The React UI shows every encryption step live, a Docker Compose mock mode runs the full pipeline without AWS, and the README is explicit about what comes next: attestation verification and in-browser encryption.',
+    tags: ['AWS Nitro Enclaves', 'Flask', 'React', 'Docker Compose'],
+    links: [
+      {
+        label: 'Source code',
+        href: 'https://github.com/Marstronix218/confidential-llm-on-nitro-enclaves',
+        external: true,
+      },
+    ],
+    primary: {
+      href: 'https://github.com/Marstronix218/confidential-llm-on-nitro-enclaves',
+      label: 'Explore Confidential LLM on GitHub',
+    },
+    screenshot: { src: '/projects/confidential-llm.webp', alt: 'Confidential LLM chat showing an encrypted response, the decrypted answer, and the seven-step message flow', width: 1020, height: 440, tint: '#c9cfd6' },
+  },
+  {
     id: 'indobiz',
     name: 'IndoBiz Japan',
     category: 'PRODUCTION PLATFORM · GLOBAL LAUNCHERS INC.',
@@ -99,6 +126,7 @@ export const PROJECTS: Project[] = [
       { label: 'Source code', href: 'https://github.com/Marstronix218/indobiz_japan', external: true },
     ],
     primary: { href: 'https://indobiz-japan.launchers-g.com/', label: 'Open the IndoBiz Japan platform' },
+    screenshot: { src: '/projects/indobiz.webp', alt: 'IndoBiz Japan home page with a live market ticker and Japanese-language India business headlines', width: 1440, height: 900, tint: '#dcc4ae' },
   },
   {
     id: 'idobata',
@@ -115,6 +143,7 @@ export const PROJECTS: Project[] = [
       { label: 'Source code', href: 'https://github.com/Marstronix218/idobataAI', external: true },
     ],
     primary: { href: 'https://idobata-ai.com', label: 'Open idobataAI' },
+    screenshot: { src: '/projects/idobata.webp', alt: 'idobataAI landing page with a sample thread where a person shares a finished task and gets replies', width: 1600, height: 1157, tint: '#e0cbc9' },
   },
   {
     id: 'research-copilot',
@@ -138,49 +167,49 @@ export const PROJECTS: Project[] = [
 
 export const CASE_STUDY = {
   contrast: [
-    { label: 'TYPICAL AI ASSISTANT', steps: ['Hand over your activity', 'Get context'] },
+    { label: 'TYPICAL AI ASSISTANT', steps: ['Hand over your inbox', 'Get a confident guess'] },
     {
       label: 'KNOV',
-      steps: ['Collect locally', 'Build work threads', 'Sanitize', 'Budget tokens', 'Send only that'],
+      steps: ['Import locally', 'Link evidence', 'Apply rules', 'Ask when unsure', 'Draft, never send'],
     },
   ],
   problem:
-    'Your working context is real but scattered across app windows, browser tabs, editors, and documents, and it evaporates the moment you switch tasks. The assistants that could rebuild it are the ones you have to hand your activity to first. The tool that would know the most about your day is the one you trust least.',
+    'Small service businesses lose money in the gaps between their tools. A client asks for a third dashboard in Slack when the contract covered two. A milestone is signed off over email and never invoiced. A promised proposal slips past its date. The evidence exists, split across contracts, inboxes, chat, and the work itself, and nobody is paid to cross-reference it. The tools that could do it are the ones you would have to hand all of it to.',
   insight:
-    'So the context gets assembled where the data already lives. Everything is collected and stored on the machine, and the only thing that reaches a model is a small, sanitized, token-budgeted packet, assembled by code the user can inspect rather than by a prompt.',
+    'So knov does the cross-referencing where the data already lives, and holds every finding to an evidence bar. A scope candidate needs an explicit request and the work that answered it. An overdue promise needs a reliable due date. A missing invoice is flagged for billing verification, not claimed as lost revenue. Where the evidence runs out, knov asks the owner instead of guessing.',
   approach: [
-    'Collect foreground app activity and window titles through native macOS APIs.',
-    'Bootstrap up to 90 days of history from an explicitly chosen Chrome profile.',
-    'Take metadata-only Local History and Git-path signals from editors, never file contents.',
-    'Write it all to a local SQLite store with 30-day detailed-activity retention.',
-    'Assemble semantic work threads across app, browser, document, and editor evidence.',
-    'Pack context deterministically, dropping full URLs, absolute paths, and credential-like fields.',
-    'Send only that token-budgeted packet to the provider the user brought a key for.',
+    'Build a local context layer from foreground apps, window titles, chosen browser history, and metadata-only editor signals, grouped into work threads.',
+    'Import contracts on the Mac (plain text, Word, and text PDFs through macOS tools) and extract scope, dates, and amounts as a proposal the owner corrects.',
+    'Pull selected Gmail and Slack messages through read-only, scoped connectors, with tokens in the macOS Keychain.',
+    'Link requests, approvals, and work threads to the agreement they belong to.',
+    'Run deterministic rules for unbilled scope changes, uninvoiced milestones, and overdue commitments, deduplicated and tied to their source evidence.',
+    'Ask a targeted clarification when approval or billing is unknown, and treat the answer as authoritative for that project.',
+    'Prepare an editable internal draft, such as a change order, and record any payment separately from the value at stake.',
   ],
   architecture: [
     {
       title: 'Desktop app',
-      body: 'A Tauri 2 shell with a Rust core for collection and packing, and a React and TypeScript surface for the dashboard, activity inspection, and profile corrections.',
+      body: 'A Tauri 2 shell with a Rust core for collection, detection, and connectors, and a React and TypeScript surface for Home, Opportunities, Sources, and the activity timeline.',
     },
     {
       title: 'Store',
-      body: 'Local SQLite, and nothing else. Detailed activity is kept 30 days; imported history past that window is cleaned up automatically.',
+      body: 'Local SQLite for activity, agreements, evidence, findings, drafts, and outcomes. Raw activity and synced message excerpts expire after 30 days; agreements you import deliberately stay until you delete them.',
     },
     {
-      title: 'Companion',
-      body: 'An optional Chrome MV3 extension adds active-tab timing. It is a post-MVP experiment, not a dependency. The desktop app works without it.',
+      title: 'Simulation',
+      body: 'Ten fictional businesses, from a web agency to a translation studio, whose sources you connect one at a time to watch the findings change. The fixtures are isolated from real data and run on a fixed clock, so every result reproduces.',
     },
     {
-      title: 'Providers',
-      body: 'OpenAI, Anthropic, or Amazon Bedrock on bring-your-own-key credentials, held in the macOS Keychain. Exclusion lists drop named apps and domains locally, before they can reach a profile at all.',
+      title: 'AI, optional',
+      body: 'A local model through Ollama or LM Studio keeps everything on the Mac; OpenAI, Anthropic, or Amazon Bedrock keys live in the Keychain. Revenue detection itself never calls a model.',
     },
   ],
   decision: {
     title: 'The decision I would defend',
-    body: 'Sanitization is deterministic and happens in the Rust core before any model call, stripping full URLs, absolute paths, credential-like fields, and unrelated raw activity, then enforcing a token budget. Handing the model everything and instructing it to be careful would have been far less work. But a privacy guarantee that depends on a model behaving is not a guarantee. Putting it in the packer makes it a property of the system.',
+    body: 'Findings come from deterministic rules in the Rust core, not from a model. Pointing an LLM at a business’s contracts and inbox and asking what it is owed would have been faster to build and better in a demo. But a model that confidently invents an unbilled $5,000 costs the owner a client relationship, and a model that reads client email can be steered by it. Rules that demand evidence keep unknown amounts unknown, treat source text strictly as data, and send no contract or message anywhere, so every finding traces back to the lines that produced it.',
   },
   takeaway:
-    'Local-first is a constraint rather than a marketing line: it decides what you can collect, where you can compute, and how much you are ever allowed to send. It also forces honesty about inference: knov presents work threads as inferences rather than confirmed intent and lets you correct them, because a system that quietly guesses at your day and sounds certain is worse than one that asks.',
+    'Money raises the bar on honesty. knov keeps what it saw apart from what it inferred, the value at stake apart from money actually received, and an approved draft apart from an action taken: approval never sends an email, posts a message, or issues an invoice. Local-first decides what knov can collect and where it can compute; the evidence bar decides what it is allowed to claim.',
 };
 
 export type Job = {
@@ -210,6 +239,11 @@ export const EXPERIENCE: Job[] = [
     place: 'Tokyo, Japan',
     text: 'Built a GPT-2 chatbot system running inside AWS Nitro Enclaves for confidential inference, with RSA-encrypted client-server communication over vsock. Shipped a Flask and boto3 control plane that automates EC2 and enclave management, key handling, and IAM-based access control, taking environment setup from about an hour to 5 minutes. Presented the system to 40+ professionals.',
     tags: 'Python · Flask · boto3 · React · AWS Nitro Enclaves · vsock',
+    link: {
+      label: 'Open-source version',
+      href: 'https://github.com/Marstronix218/confidential-llm-on-nitro-enclaves',
+      external: true,
+    },
   },
   {
     company: 'GSP Cloud',

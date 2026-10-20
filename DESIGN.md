@@ -4,7 +4,7 @@
 - Status: Active
 - Last refreshed: 2026-09-07 (recruiter-facing depth pass)
 - Primary product surfaces: single-page personal portfolio in `site/`.
-- Evidence reviewed: original resume PDF; public GitHub READMEs for Research Copilot, knov, HookLoop, SOLID, BearEd, IndoBiz Japan; indexed LinkedIn. No pre-existing UI or brand assets.
+- Evidence reviewed: original resume PDF; public GitHub READMEs for Research Copilot, knov, HookLoop, SOLID, BearEd, IndoBiz Japan, confidential-llm-on-nitro-enclaves; indexed LinkedIn. No pre-existing UI or brand assets.
 
 ## Brand
 - Personality: confident, curious, precise, international, hands-on.
@@ -37,7 +37,7 @@
 - Spacing/layout rhythm: 8px base, 1320px max width, generous section separation.
 - Shape/radius/elevation: fine borders, restrained rounded project artwork, flat surfaces.
 - Motion: subtle orbital motion and hover; respect reduced motion.
-- Imagery/iconography: CSS orbital sculpture, explicitly illustrative project workflows, and Noriaki's supplied portrait; text arrows plus inline GitHub/LinkedIn brand marks; no invented screenshots or stock portraits.
+- Imagery/iconography: CSS orbital sculpture; real product screenshots (from each repo or live site, in `site/public/projects/`) on tinted frames for project cards, with illustrated art only where no real screenshot is worth showing (SOLID, Research Copilot); and Noriaki's supplied portrait; text arrows plus inline GitHub/LinkedIn brand marks; no invented screenshots or stock portraits.
 
 ## Components
 - Existing components to reuse: scaffold layout and fonts.

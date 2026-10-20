@@ -70,60 +70,9 @@ function ResearchCopilotArt() {
   );
 }
 
-function KnovArt() {
-  return (
-    <div className="project-art knov-art" aria-hidden="true">
-      <div className="knov-art-copy"><span className="art-kicker">PERSONAL CONTEXT, CONNECTED</span><span className="knov-logo">knov</span><span className="knov-tagline">A little context.<br />A lot of possibility.</span><span className="art-caption">CONCEPT VIEW / MACOS</span></div>
-      <div className="knov-window"><div className="window-top"><span className="window-dots"><i /><i /><i /></span><span>your working memory</span><span>⌘ K</span></div><div className="window-content"><div className="memory-label"><span className="memory-dot" /> LOCAL MEMORY</div><strong>Pick up where<br />your mind left off.</strong><div className="context-line"><span>Code</span><i /><span>Browser</span><i /><span>Notes</span></div><div className="memory-thread"><span className="thread-icon">⌁</span><div><b>Connect the dots</b><p>Activity → work threads → next steps</p></div><span>↗</span></div><div className="window-foot"><span>YOUR CONTEXT. YOUR CONTROL.</span><span>◉</span></div></div></div>
-    </div>
-  );
-}
-
-function HookLoopArt() {
-  return (
-    <div className="project-art hook-art" aria-hidden="true"><div className="art-topline"><span>HOOKLOOP</span><span>↗</span></div><div className="hook-composition"><div className="hook-headline">Create.<br />Test.<br /><em>Repeat.</em></div><div className="agent-flow"><div><span>01</span> Strategist <i /></div><b>↓</b><div><span>02</span> Generator <i /></div><b>↓</b><div><span>03</span> Analyst <i /></div></div></div><span className="art-caption">CONCEPT VIEW / AUTONOMOUS AD EXPERIMENTS</span></div>
-  );
-}
-
 function SolidArt() {
   return (
     <div className="project-art solid-art" aria-hidden="true"><div className="art-topline"><span>BUY WITH CONFIDENCE</span><span>↗</span></div><div className="solid-composition"><span className="solid-logo">SOLID</span><div className="solid-card"><span className="solid-check">✓</span><div><b>Two confirmations.<br />One confident handoff.</b><span>BUYER + SELLER → PAYMENT RELEASE</span></div></div></div><span className="art-caption">CONCEPT VIEW / MARKETPLACE BUYING AGENT</span></div>
-  );
-}
-
-function IndoBizArt() {
-  return (
-    <div className="project-art indo-art" aria-hidden="true">
-      <div className="art-topline"><span>INDOBIZ JAPAN</span><span>↗</span></div>
-      <div className="indo-composition">
-        <div className="indo-headline">India.<br />Decoded<br /><em>for Japan.</em></div>
-        <div className="indo-stack">
-          <div className="indo-card">
-            <span className="indo-tag">REGULATION</span>
-            <b>Summary with the<br />evidence attached.</b>
-            <span className="indo-src">SOURCES VERIFIED</span>
-          </div>
-          <div className="indo-ticker"><span>USD/INR</span><i /><span>NIFTY</span><i /><span>CRUDE</span></div>
-        </div>
-      </div>
-      <span className="art-caption">CONCEPT VIEW / INDIA BUSINESS INTELLIGENCE</span>
-    </div>
-  );
-}
-
-function IdobataArt() {
-  return (
-    <div className="project-art idobata-art" aria-hidden="true">
-      <div className="art-topline"><span>IDOBATA AI</span><span>↗</span></div>
-      <div className="idobata-composition">
-        <div className="idobata-headline">Private<br />by default.<br /><em>Shared by choice.</em></div>
-        <div className="idobata-stack">
-          <div className="idobata-task"><span className="idobata-check">✓</span><div><b>Finish the draft</b><span>PRIVATE</span></div></div>
-          <div className="idobata-reply"><span className="idobata-avatar">◕</span><div><b>Nice work.</b><span className="idobata-ai-tag">AI PERSONA</span></div></div>
-        </div>
-      </div>
-      <span className="art-caption">CONCEPT VIEW / PRIVACY-FIRST PRODUCTIVITY NETWORK</span>
-    </div>
   );
 }
 
@@ -169,12 +118,27 @@ function ProjectInfo({ project, featured = false }: { project: Project; featured
 
 const PROJECT_ART: Record<string, () => React.JSX.Element> = {
   "research-copilot": ResearchCopilotArt,
-  knov: KnovArt,
-  hookloop: HookLoopArt,
   solid: SolidArt,
-  indobiz: IndoBizArt,
-  idobata: IdobataArt,
 };
+
+function ProjectVisual({ project, featured = false }: { project: Project; featured?: boolean }) {
+  const shot = project.screenshot;
+  if (!shot) {
+    const Art = PROJECT_ART[project.id];
+    return <Art />;
+  }
+  return (
+    <div className="project-art project-shot" style={{ background: shot.tint }}>
+      <Image
+        src={shot.src}
+        alt={shot.alt}
+        width={shot.width}
+        height={shot.height}
+        sizes={featured ? "(max-width: 640px) 92vw, 1240px" : "(max-width: 640px) 92vw, 620px"}
+      />
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -208,26 +172,20 @@ export default function Home() {
 
         <section id="work" className="work-section wrap section" aria-labelledby="work-title">
           <div className="section-label"><span>01 / SELECTED WORK</span><span>IDEAS, SHIPPED.</span></div>
-          <div className="section-heading"><h2 id="work-title">Built with intent.</h2><p>Research tooling, a local-first desktop assistant, deployed platforms, and agents that carry a task from start to finish. Each one solved a problem I actually had.</p></div>
+          <div className="section-heading"><h2 id="work-title">Built with intent.</h2><p>Research tooling, a local-first revenue tool for small businesses, confidential LLM infrastructure, deployed platforms, and agents that carry a task from start to finish. Each one solved a problem I actually had.</p></div>
           <div className="project-grid">
-            {FEATURED_PROJECTS.map((project) => {
-              const Art = PROJECT_ART[project.id];
-              return (
-                <article className="project project-featured" key={project.id}>
-                  <Art />
-                  <ProjectInfo project={project} featured />
-                </article>
-              );
-            })}
-            {PROJECTS.map((project) => {
-              const Art = PROJECT_ART[project.id];
-              return (
-                <article className="project" key={project.id}>
-                  <Art />
-                  <ProjectInfo project={project} />
-                </article>
-              );
-            })}
+            {FEATURED_PROJECTS.map((project) => (
+              <article className="project project-featured" key={project.id}>
+                <ProjectVisual project={project} featured />
+                <ProjectInfo project={project} featured />
+              </article>
+            ))}
+            {PROJECTS.map((project) => (
+              <article className="project" key={project.id}>
+                <ProjectVisual project={project} />
+                <ProjectInfo project={project} />
+              </article>
+            ))}
           </div>
           <a className="all-work" href={PROFILE.github} {...ext}><span>There’s more where that came from.</span><span>Explore my GitHub <Arrow /></span></a>
         </section>
@@ -235,7 +193,7 @@ export default function Home() {
         <section id="case-study" className="case-section" aria-labelledby="case-title">
           <div className="wrap section">
             <div className="section-label"><span>02 / FEATURED CASE STUDY</span><span>LOCAL-FIRST · MACOS</span></div>
-            <div className="section-heading"><div className="case-title-block"><span className="case-project">knov</span><h2 id="case-title">Local by architecture,<br />not by promise.</h2></div><p>A closer look at <strong>knov</strong>, the local-first macOS assistant from the work above: how it rebuilds your working context on your own machine, and why so little of it ever leaves. Technical alpha, Apple Silicon.</p></div>
+            <div className="section-heading"><div className="case-title-block"><span className="case-project">knov</span><h2 id="case-title">Local by architecture,<br />not by promise.</h2></div><p>A closer look at <strong>knov</strong> from the work above: how it finds the revenue a business is missing in its own contracts, messages, and work, without any of that material leaving the Mac. Technical alpha for macOS.</p></div>
 
             <div className="contrast">
               {CASE_STUDY.contrast.map((row) => (
