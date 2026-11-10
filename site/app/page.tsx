@@ -76,6 +76,17 @@ function SolidArt() {
   );
 }
 
+function ProjectConcept({ title, kicker, detail, tint }: { title: string; kicker: string; detail: string; tint: string }) {
+  return (
+    <div className="project-art project-concept" style={{ background: tint }} aria-hidden="true">
+      <span className="art-topline">{kicker}</span>
+      <strong>{title}</strong>
+      <span className="concept-detail">{detail}</span>
+      <span className="art-caption">PROJECT OVERVIEW / TYPOGRAPHIC ILLUSTRATION</span>
+    </div>
+  );
+}
+
 function ProjectInfo({ project, featured = false }: { project: Project; featured?: boolean }) {
   return (
     <div className="project-info">
@@ -117,6 +128,7 @@ function ProjectInfo({ project, featured = false }: { project: Project; featured
 }
 
 const PROJECT_ART: Record<string, () => React.JSX.Element> = {
+  "kafka-in-python": () => <ProjectConcept title="Kafka In Python" kicker="WRITE → REPLICATE → RECOVER" detail="Built to explore what survives a failure." tint="#cbdce1" />,
   "research-copilot": ResearchCopilotArt,
   solid: SolidArt,
 };
@@ -260,7 +272,7 @@ export default function Home() {
           <div className="section-label"><span>04 / EXPERIENCE</span><span>BEYOND THE SIDE PROJECTS</span></div>
           <div className="impact-stats"><div><strong>60<span>→</span>5<small>min</small></strong><span>Secure AI setup time<br />EAGLYS</span></div><div><strong>45<span>+</span></strong><span>RSS feeds automated<br />Global Launchers Inc.</span></div><div><strong>50<span>+</span></strong><span>AI agent workflows managed<br />GSP Cloud</span></div></div>
           <div className="experience-grid">
-            <div className="experience-intro"><h2 id="experience-title">Real teams.<br />Real impact.</h2><p>Four internships and a tech lead role across Japan, South Korea, and Taiwan, building where engineering meets a real constraint: security, cost, or time.</p><a className="text-link" href={PROFILE.resume} download>Download my resume <span aria-hidden="true">↓</span></a></div>
+            <div className="experience-intro"><h2 id="experience-title">Real teams.<br />Real impact.</h2><p>Four internships and a tech lead role across Japan, South Korea, and Taiwan, building where engineering meets a real constraint: security, cost, or time. My latest internship at Piece.ai focuses on AI agents and backend engineering.</p><a className="text-link" href={PROFILE.resume} download>Download my resume <span aria-hidden="true">↓</span></a></div>
             <div className="timeline">
               {EXPERIENCE.map((job, index) => (
                 <details className="experience-item" key={job.company} open={index === 0}>

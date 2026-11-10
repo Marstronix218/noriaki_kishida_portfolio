@@ -72,6 +72,9 @@ h2 { font-weight: 500; font-size: clamp(38px, 4.1vw, 58px); line-height: 1.08; l
 .project { min-width: 0; }
 .project-art { height: 290px; overflow: hidden; border-radius: 7px; position: relative; transition: transform 250ms; color-scheme: light; }
 .project:hover .project-art { transform: translateY(-3px); }
+.project-concept { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 18px; padding: 28px; color: #293a43; }
+.project-concept strong { font-size: clamp(30px, 4vw, 56px); font-weight: 600; letter-spacing: -2px; line-height: 1.1; overflow-wrap: anywhere; }
+.concept-detail { font-size: 15px; line-height: 1.5; }
 
 .art-kicker, .art-caption, .art-topline { font-family: var(--font-mono), monospace; font-size: 8px; letter-spacing: 1px; }
 

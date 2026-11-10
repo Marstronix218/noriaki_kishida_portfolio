@@ -51,6 +51,38 @@ export const FEATURED_PROJECTS: Project[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: 'veradact',
+    name: 'Veradact',
+    category: 'PRODUCT DEVELOPMENT · LIVE BETA',
+    summary:
+      'A requirements sign-off product for software agencies, keeping a replayable history of what clients agreed to. In a pilot with 12 beta users across four agencies, users confirmed 110+ requirements, 68% within five business days.',
+    buildLabel: 'Built',
+    build:
+      'Next.js and TypeScript with PostgreSQL and Drizzle ORM. Sign-offs form an append-only, hash-chained event log that can reconstruct any past state, with row-level security and triggers protecting tenant boundaries across 700+ tests. Reviewing Claude Code diffs against 67 design decisions caught eight AI-generated code defects before merge.',
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'MCP'],
+    links: [
+      { label: 'Live product', href: 'https://veradact.com', external: true },
+      { label: 'Source code', href: 'https://github.com/Marstronix218/veradact', external: true },
+    ],
+    primary: { href: 'https://veradact.com', label: 'Open Veradact' },
+    screenshot: { src: '/projects/veradact.webp', alt: 'Veradact landing page with a client review preview showing a confirmed requirement, a disputed assumption, and the source quotes behind each', width: 1440, height: 955, tint: '#e0d9c4' },
+  },
+  {
+    id: 'kafka-in-python',
+    name: 'Kafka In Python',
+    category: 'DISTRIBUTED SYSTEMS · PERSONAL PROJECT',
+    summary:
+      'A Kafka-style replicated log built in Python to explore what it takes to keep writes safe when a server fails. Across 409,976 writes and 22 fault-injection runs, no acknowledged writes were lost.',
+    buildLabel: 'Built',
+    build:
+      'Replication with in-sync replicas, leader failover, and idempotent producers, exposed over HTTP/REST and run with Docker Compose. Topic partitioning lifted throughput from 254 to 569 records per second (2.2×), with 31 ms p99 latency; leader failover completed in 1.6 seconds in testing.',
+    tags: ['Python', 'Docker Compose', 'HTTP/REST', 'Distributed Systems'],
+    links: [
+      { label: 'Source code', href: 'https://github.com/Marstronix218/kafka-in-python', external: true },
+    ],
+    primary: { href: 'https://github.com/Marstronix218/kafka-in-python', label: 'Explore Kafka In Python on GitHub' },
+  },
+  {
     id: 'hookloop',
     name: 'HookLoop',
     category: 'AI AGENTS · TEAM HACKATHON BUILD',
@@ -136,7 +168,7 @@ export const PROJECTS: Project[] = [
       'A privacy-first productivity network. Tasks stay private by default, you choose what to post when you finish one, and encouragement comes back from real people and clearly labelled AI personas.',
     buildLabel: 'Built',
     build:
-      'Next.js 16 and React 19 on Supabase, with privacy enforced by PostgreSQL row-level security rather than trusted to application code. Cursor-paginated feeds, one-to-one chat, scheduled persona engagement, account deletion that purges media, and an interface built to WCAG 2.1 AA.',
+      'Next.js 16 and React 19 on Supabase, with privacy enforced by PostgreSQL row-level security. Cursor-paginated feeds and one-to-one chat sit alongside a background queue supporting 400 AI engagement jobs a day, with atomic claims, expiring leases, retries, and idempotent writes. Unit, integration, and SQL contract checks cover access controls, AI-provider fallbacks, and job recovery, reducing escaped regressions by 40%.',
     tags: ['Next.js 16', 'React 19', 'Supabase', 'PostgreSQL RLS'],
     links: [
       { label: 'Live site', href: 'https://idobata-ai.com', external: true },
@@ -223,6 +255,14 @@ export type Job = {
 };
 
 export const EXPERIENCE: Job[] = [
+  {
+    company: 'Piece.ai Inc.',
+    role: 'Software Engineer Intern, AI Agents & Backend',
+    dates: 'NOV 2026 – PRESENT',
+    place: 'Tokyo, Japan',
+    text: 'Added per-branch Vercel previews for the Next.js frontend of an enterprise AI-agent platform, bringing design reviews from two days to the same day. Worked in a monorepo with eight CI/CD workflows spanning Rust/axum, PostgreSQL, and GCP Cloud Run. Restored organization-wide CI after tracing an outage to 16 hung deploy runs that exhausted the GitHub Actions quota, then moved builds to Vercel’s Git integration.',
+    tags: 'Next.js · Rust · axum · PostgreSQL · GCP Cloud Run · GitHub Actions · Vercel',
+  },
   {
     company: 'Global Launchers Inc.',
     role: 'Tech Lead / CTO',
