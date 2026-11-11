@@ -3,7 +3,7 @@ export const PROFILE = {
   email: 'noriaki@uni.minerva.edu',
   github: 'https://github.com/Marstronix218',
   linkedin: 'https://www.linkedin.com/in/noriaki-kishida/',
-  resume: '/noriaki_kishida_resume.pdf',
+  resume: '/noriaki_kishida_resume.pdf?v=2bd835bc0a2e',
   booking: 'https://calendar.app.google/HjcaG9E9GjMQDQ3B7',
 };
 
